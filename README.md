@@ -67,14 +67,17 @@ cd Slack-Schedular
 2. Create a `.env` file and add the following (replace with your values):
    ```env
    PORT=4000
-   MONGO_URI=mongodb://localhost:27017/slack_scheduler
+   MONGO_URI=your_mongo_URI
    SLACK_CLIENT_ID=your_client_id
    SLACK_CLIENT_SECRET=your_client_secret
-   SLACK_OAUTH_REDIRECT_URI=http://localhost:4000/auth/callback
+   SLACK_OAUTH_REDIRECT_URI=https://localhost:4000/auth/callback
    BASE_URL=http://localhost:4000
    FRONTEND_URL=http://localhost:3000
    AGENDADB_COLLECTION=agendaJobs
    ```
+    
+   > **⚠️ Important Note:**
+   > When configuring the Slack OAuth redirect URI, make sure to change `https` to `http` while running the project locally in your browser. Update the redirect URI to `http://localhost:4000/auth/callback` in your Slack app settings. The authentication flow will only work if this matches your local setup.
 3. Install dependencies:
    ```bash
    npm install
