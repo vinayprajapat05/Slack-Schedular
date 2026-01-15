@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 
 export default function InstallButton() {
   const install = () => {
-    window.location.href = `${process.env.REACT_APP_API_URL || "http://localhost:4000"}/auth/install`;
+    window.location.href = `${process.env.REACT_APP_API_URL || "https://slack-schedular-1.onrender.com"}/auth/install`;
   };
   return (
     <Stack direction="row" justifyContent="center" sx={{ my: 2 }}>
