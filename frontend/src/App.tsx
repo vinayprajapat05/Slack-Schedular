@@ -9,7 +9,7 @@ import Composer from "./components/Composer";
 import InstallButton from "./components/InstallButton";
 import ScheduledList from "./components/ScheduledList";
 
-const API = process.env.REACT_APP_API_URL || "https://slack-schedular-1.onrender.com/";
+const API = process.env.REACT_APP_API_URL || "https://slack-schedular-1.onrender.com";
 
 export default function App() {
   const [teamId, setTeamId] = useState<string | null>(null);
