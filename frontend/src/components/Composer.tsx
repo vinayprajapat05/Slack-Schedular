@@ -42,11 +42,10 @@ export default function Composer({ teamId, apiBase }: { teamId: string, apiBase:
   const schedule = async () => {
     if (!postAt) return setFeedback({ type: "error", message: "Pick a date/time" });
     setFeedback({ type: null, message: "" });
+    // Convert local datetime string to ISO UTC string
+    const isoDate = new Date(postAt).toISOString();
     try {
-      // Convert local datetime to ISO string with timezone offset
-      const localDate = new Date(postAt);
-      const isoWithTz = new Date(localDate.getTime() - localDate.getTimezoneOffset() * 60000).toISOString();
-      await axios.post(`${apiBase}/api/messages/schedule`, { teamId, channel, text, postAt: isoWithTz });
+      await axios.post(`${apiBase}/api/messages/schedule`, { teamId, channel, text, postAt: isoDate });
       setFeedback({ type: "success", message: "Message scheduled." });
     } catch (err: any) {
       setFeedback({ type: "error", message: "Error scheduling: " + (err?.response?.data?.error || err.message) });
